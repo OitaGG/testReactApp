@@ -5,7 +5,6 @@ import ErrorMessage from "../../Error/Error";
 
 export default class Posts extends Component {
     InstaService = new InstaService();
-
     state = {
         posts: [],
         error: false,
