@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Header from './Components/Header/Header'
-import Feed from './Components/Feed/Feed'
+import Header from './components/Header/Header'
+import Feed from './components/Feed/Feed'
 
 export default class App extends Component {
   render () {
