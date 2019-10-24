@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import InstaService from '../../services/instaService'
 import ErrorMessage from "../Error/Error";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default class Palette extends Component{
     InstaService = new InstaService();
@@ -21,7 +22,6 @@ export default class Palette extends Component{
     };
 
     onError = (err) => {
-        console.log(err);
         this.setState({
             error: true,
         })
@@ -44,10 +44,15 @@ export default class Palette extends Component{
     }
 
     render() {
-        const {error, photos} = this.state;
+        const {error, photos, loading} = this.state;
         if(error){
             return <ErrorMessage/>
         }
+
+        if(loading){
+            return <LoadingSpinner/>
+        }
+
         const items = this.renderItems(photos);
         return(
             <div className={"palette"}>
